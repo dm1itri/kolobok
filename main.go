@@ -7,15 +7,11 @@ import (
 )
 
 func main() {
-	data := make([]int, 0, 10000000)
-	goodData := make([]int, cap(data))
+	data := make([]int, 0, 10)
 	for i := 0; i < cap(data); i++ {
-		data = append(data, rand.Intn(1000000))
-		goodData[i] = data[i]
+		data = append(data, rand.Intn(20))
 	}
-	CountingSort(data)
-	//fmt.Println(data)
-	slices.Sort(goodData)
-	//fmt.Println(goodData)
-	fmt.Println(slices.Equal(data, goodData))
+	slices.Sort(data)
+	fmt.Println(data)
+	fmt.Println(BinarySearch(data, 5))
 }
