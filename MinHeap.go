@@ -26,12 +26,16 @@ func SiftDown(index int, length int, data []int) {
 	}
 }
 
-func HeapSort(data []int) {
-	length := len(data)
-	for i := length / 2; i >= 0; i-- {
+func MinHeap(data []int) {
+	for i := len(data) / 2; i >= 0; i-- {
 		SiftUp(i, data)
-		SiftDown(i, length, data)
+		SiftDown(i, len(data), data)
 	}
+}
+
+func HeapSort(data []int) {
+	MinHeap(data)
+	length := len(data)
 	dataCopy := make([]int, length)
 	for i := 0; i < length; i++ {
 		dataCopy[i] = data[0]
