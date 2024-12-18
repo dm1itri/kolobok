@@ -1,14 +1,17 @@
 package main
 
+import "slices"
+
 func CountingSort(data []int) {
-	var counts [1000000]int
-	for i := 0; i < 1000000; i++ {
+	rangeValues := slices.Max(data) - slices.Min(data) + 1
+	counts := make([]int, 0, rangeValues)
+	for i := 0; i < rangeValues; i++ {
 		counts[i] = 0
 	}
 	for i := 0; i < len(data); i++ {
 		counts[data[i]]++
 	}
-	for i := 1; i < 1000000; i++ {
+	for i := 1; i < rangeValues; i++ {
 		counts[i] = counts[i] + counts[i-1]
 	}
 	dataCopy := make([]int, len(data))
