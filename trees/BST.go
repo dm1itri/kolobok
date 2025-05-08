@@ -1,4 +1,4 @@
-package main
+package trees
 
 import (
 	"fmt"
@@ -14,6 +14,7 @@ func GetMinimumNode(root *Node) *Node {
 	for root.left != nil {
 		root = root.left
 	}
+
 	return root
 }
 
@@ -21,11 +22,13 @@ func Insert(root *Node, value int) *Node {
 	if root == nil {
 		return &Node{nil, nil, value}
 	}
+
 	if root.value > value {
 		root.left = Insert(root.left, value)
 	} else {
 		root.right = Insert(root.right, value)
 	}
+
 	return root
 }
 
@@ -33,6 +36,7 @@ func Delete(root *Node, value int) *Node {
 	if root == nil {
 		return nil
 	}
+
 	if root.value > value {
 		root.left = Delete(root.left, value)
 	} else if root.value < value {
@@ -43,10 +47,12 @@ func Delete(root *Node, value int) *Node {
 		} else if root.right == nil {
 			return root.left
 		}
+
 		node := GetMinimumNode(root.right)
 		root.value = node.value
 		root.right = Delete(root.right, node.value)
 	}
+
 	return root
 }
 
@@ -78,5 +84,6 @@ func GetMaxHeight(root *Node) int {
 	if root == nil {
 		return 0
 	}
+
 	return max(GetMaxHeight(root.left), GetMaxHeight(root.right)) + 1
 }
