@@ -3,6 +3,7 @@ package graphs
 import "slices"
 
 // TopologicalSort корректно работает только на направленном ациклическом графе
+// визуализация https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html
 func (g *graph[T]) TopologicalSort() []T {
 	visited := make([]bool, len(g.adjacencyList))
 	order := make([]T, 0, len(g.adjacencyList))
