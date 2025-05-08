@@ -1,19 +1,19 @@
 package graphs
 
-type Graph interface {
-	AddEdge(vertexFrom, vertexTo int)
-	DFS(start int, visited []bool)
-	BFS(start int)
+type Graph[T ~int] interface {
+	AddEdge(vertexFrom, vertexTo T)
+	DFS(start T, visited []bool)
+	BFS(start T)
 }
 
-type graph struct {
-	adjacencyList [][]int
+type graph[T ~int] struct {
+	adjacencyList [][]T
 }
 
-func New(size int) Graph {
-	return &graph{adjacencyList: make([][]int, size)}
+func New[T ~int](size int) Graph[T] {
+	return &graph[T]{adjacencyList: make([][]T, size)}
 }
 
-func (g *graph) AddEdge(vertexFrom, vertexTo int) {
+func (g *graph[T]) AddEdge(vertexFrom, vertexTo T) {
 	g.adjacencyList[vertexFrom] = append(g.adjacencyList[vertexFrom], vertexTo)
 }

@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func GetGraph() Graph {
-	graph := New(10)
+func GetGraph() Graph[int] {
+	graph := New[int](10)
 	graph.AddEdge(0, 1)
 	graph.AddEdge(1, 2)
 	graph.AddEdge(2, 3)

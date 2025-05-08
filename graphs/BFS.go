@@ -1,8 +1,8 @@
 package graphs
 
 // BFS принимает стартовую вершину и выводит вершины в порядке их посещения
-func (g *graph) BFS(vertexFrom int) {
-	queue := []int{vertexFrom}
+func (g *graph[T]) BFS(vertexFrom T) {
+	queue := []T{vertexFrom}
 	visited := make([]bool, len(g.adjacencyList))
 	visited[vertexFrom] = true
 

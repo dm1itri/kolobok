@@ -1,6 +1,6 @@
 package graphs
 
-func (g *graph) DFS(vertexFrom int, visited []bool) {
+func (g *graph[T]) DFS(vertexFrom T, visited []bool) {
 	if visited[vertexFrom] {
 		return
 	}
