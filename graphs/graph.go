@@ -3,6 +3,7 @@ package graphs
 type Graph interface {
 	AddEdge(vertexFrom, vertexTo int)
 	DFS(start int, visited []bool)
+	BFS(start int)
 }
 
 type graph struct {
