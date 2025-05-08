@@ -4,6 +4,7 @@ type Graph[T ~int] interface {
 	AddEdge(vertexFrom, vertexTo T)
 	DFS(start T, visited []bool)
 	BFS(start T)
+	TopologicalSort() []T
 }
 
 type graph[T ~int] struct {
