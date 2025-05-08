@@ -5,29 +5,6 @@ import (
 	"testing"
 )
 
-func getGraphTwoComponent() Graph[int] {
-	graph := New[int](7)
-	graph.AddEdge(1, 0)
-	graph.AddEdge(1, 2)
-	graph.AddEdge(1, 3)
-	graph.AddEdge(3, 2)
-	graph.AddEdge(2, 4)
-	graph.AddEdge(6, 5)
-
-	return graph
-}
-
-func getGraphOneComponent() Graph[int] {
-	graph := New[int](5)
-	graph.AddEdge(1, 0)
-	graph.AddEdge(1, 2)
-	graph.AddEdge(1, 3)
-	graph.AddEdge(3, 2)
-	graph.AddEdge(2, 4)
-
-	return graph
-}
-
 func TestGraphsDFS(t *testing.T) {
 	type args struct {
 		vertexFrom int
